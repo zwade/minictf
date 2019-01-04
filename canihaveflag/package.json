@@ -1,0 +1,7 @@
+{
+  "name": "CanIHaveAFlag",
+  "version": "0.1.0",
+  "description": "Can I have a Flag?",
+  "main": "index.js",
+  "license": "MIT"
+}
