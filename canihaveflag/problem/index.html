@@ -20,19 +20,18 @@ h1 {
 }
 		</style>
 		<script>
-// For those wondering, this has nothing to do with the CTF
+// For those wondering, this line has nothing to do with the CTF
 // It's just a funny little trick I like
-[String, Object, Array].forEach((cls) => cls.prototype.callOn = function (fn) { return fn(this) })
+[String, Object, Array, Map].forEach((cls) => cls.prototype.callOn = function (fn) { return fn(this) })
 
 window.onload = function() {
-	let cookies = document.cookie
+	let userAuth = document.cookie
 		.split(";")
 		.map((cookie) => (cookie.trim()).split("="))
-		.reduce((map, [key, value]) => map.set(key, value), new Map());
-
-	let userAuth = cookies.get("user-auth")
+		.reduce((map, [key, value]) => map.set(key, value), new Map())
+		.callOn((map) => map.get("user-auth"))
 		.split(".")
-		.callOn(([_1, data, _2]) => data)
+		.callOn(([_preamble, data, _signature]) => data)
 		.callOn(decodeURIComponent)
 		.callOn(atob)
 		.split("&")
