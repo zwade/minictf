@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="/assets/css/main.css">
+		<link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet">
+		<script src="https://zeptojs.com/zepto.min.js"></script>
+		<script src="/assets/js/main.js"></script>
+		<script type="application/template" id="post">
+			<div class="post">
+				<div class="image">
+					<img src="{{url}}" class="gif">
+				</div>
+				<div class="description">
+					<div class="description-inner">
+						{{description}}
+					</div>
+				</div>
+				<div class="rating">
+					<div class="rating-inner">
+						{{rating}}/10
+					</div>
+				</div>
+			</div>
+		</script>
+	</head>
+	<body>
+		<div class="main">
+			<h1>WeRateBirds</h1>
+			<div id="ratings"></div>
+			<div class="source">
+				<a href="/@highlight/server/__main__.py">View Source</a>
+			</div>
+		</div>	
+	</body>
+</html>
