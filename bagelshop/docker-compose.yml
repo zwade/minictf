@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  web:
+    build: ./web/
+    ports:
+      - "80:80"
+    volumes:
+      - ./web/www:/var/www/html/
+  db:
+    #image: mariadb
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: bageldb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: test
+      MYSQL_ROOT_PASSWORD: test
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
