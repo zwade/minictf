@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<link href="https://fonts.googleapis.com/css?family=Comfortaa|Maven+Pro" rel="stylesheet">
+		<link rel="stylesheet" href="/static/css/main.css">
+	</head>
+
+	<body>
+		<div class="main">
+			<h1> Login to Postable </h1>
+
+			<div class="auth-sections">
+				<form method="POST" action="/login">
+					<div class="auth">
+						<div class="auth-header">
+							Login
+						</div>
+						<input type="text" placeholder="Username" name="username"/>
+						<input type="password" placeholder="Password" name="password"/>
+						<input type="submit" value="Submit"/>
+					</div>
+				</form>
+
+				<div class="optional">
+					<span>Or<span>
+				</div>
+
+				<form method="POST" action="/register">
+					<div class="auth">
+						<div class="auth-header">
+							Register
+						</div>
+						<input type="text" placeholder="Username" name="username"/>
+						<input type="text" placeholder="Email" name="email"/>
+						<input type="password" placeholder="Password" name="password"/>
+						<input type="password" placeholder="Password (Again)" name="password_verify"/>
+						<input type="submit" value="Submit"/>
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+	
+</html>

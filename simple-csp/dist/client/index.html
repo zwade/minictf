@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<link href="https://fonts.googleapis.com/css?family=Comfortaa|Maven+Pro" rel="stylesheet">
+		<link rel="stylesheet" href="/static/css/main.css">
+		<script src="/static/js/jquery.js"></script>
+		<script src="/static/js/index.js"></script>
+	</head>
+
+	<body>
+		<h1> Welcome to Postable </h1>
+		<div class="main-home">
+			<div class="posts">
+			</div>
+
+			<div class="options">
+				<div class="author">
+					<form class="author-form" method="POST" action="/new">
+						<textarea name="content" class="author-content" placeholder="New Posts Here!"></textarea>
+						<input type="submit" name="submit" value="Submit"/>
+					</form>
+				</div>
+				<div class="all-posts">
+					{posts}	
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

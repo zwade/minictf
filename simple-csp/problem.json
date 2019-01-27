@@ -1,0 +1,10 @@
+{
+	"name": "Postable",
+	"category": "Web Exploitation",
+	"description": "Picture this, [insert_favorite_social_media_site] but with HTML! Using state of the art security, we can even make sure that it's 200% safe. There is no way you could steal the admin's cookies. http:/{{server}}:{{port}}/source",
+	"score" : 700,
+	"hints": ["Small steps. Think about what you need in order to be able to fully extract the admin's cookies."],
+	"author": "Zachary Wade",
+	"organization": "picoCTF",
+        "pkg_dependencies": ["mongodb-org", "nodejs"]
+}

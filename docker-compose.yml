@@ -1,0 +1,36 @@
+version: "3.3"
+services:
+  csp-server:
+    image: csp-server
+    restart: always
+    environment:
+      MONGO_USER: docker-root
+      MONGO_PASS: thisisasecurepasswordtm
+      MONGO_HOST: mongo
+      PORT: "7070"
+      BASENAME: "problems.getpwning.com:7070"
+    ports:
+      - "7070:7070"
+  csp-bot:
+    image: csp-bot
+    restart: always
+    cap_add:
+      - SYS_ADMIN
+    environment:
+      MONGO_USER: docker-root
+      MONGO_PASS: thisisasecurepasswordtm
+      MONGO_HOST: mongo
+      PORT: "7070"
+      BASENAME: "problems.getpwning.com:7070"
+  mongo:
+    image: mongo:4
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: docker-root
+      MONGO_INITDB_ROOT_PASSWORD: thisisasecurepasswordtm
+      MONGO_INITDB_DATABASE: postable
+  vfs:
+    image: vfs
+    restart: always
+  canihaveflag:
+    image: canihaveflag
+    restart: always

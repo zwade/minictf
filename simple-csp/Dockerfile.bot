@@ -1,0 +1,5 @@
+FROM csp-server
+
+USER pptruser
+
+CMD ["/bin/sh", "-c", "forever start xss/index.js && sleep 5 && forever logs -f 0"]
