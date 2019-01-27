@@ -84,8 +84,9 @@ let main = async() => {
 		let token = req.cookies["auth"];
 		if (!token) return res.redirect(`/login`);
 
-		let { user } = await db.tokens.findOne({ token });
-		if (!user) return res.redirect(`/login`);
+		let tokenObj = await db.tokens.findOne({ token });
+		if (!tokenObj) return res.redirect(`/login`);
+		let user = tokenObj.user;
 
 		let posts = await db.posts.aggregate([
 			{ $match: { user } },
@@ -215,11 +216,13 @@ let main = async() => {
 			res.send(`Not logged in!`);
 		}
 
-		let { user } = await db.tokens.findOne({ token });
-		if (!user) {
+		let tokenObj = await db.tokens.findOne({ token });
+		if (!tokenObj) {
 			res.status(500);
 			res.send(`Invalid user`);
 		}
+
+		let user = tokenObj.user;
 
 		if (!req.body["content"] || typeof req.body["content"] !== "string") {
 			res.status(500);

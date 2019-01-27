@@ -31,6 +31,26 @@ services:
   vfs:
     image: vfs
     restart: always
+    ports:
+      - "9630:9630"
   canihaveflag:
     image: canihaveflag
     restart: always
+    ports:
+      - "5454:5454"
+  bagelshop:
+    image: bagelshop
+    ports:
+      - "7007:80"
+    volumes:
+      - ./bagelshop/web/www:/var/www/html/
+  mysqldb:
+    #image: mariadb
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: bageldb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: test
+      MYSQL_ROOT_PASSWORD: test
+    volumes:
+      - ./bagelshop/db:/docker-entrypoint-initdb.d

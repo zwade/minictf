@@ -44,4 +44,4 @@ EXPOSE 4974
 ENV PORT 4974
 ENV BASENAME problems.getpwning.com:4974
 
-CMD ["/bin/sh", "-c", "forever start index.js && sleep 5 && forever logs -f 0"]
+CMD ["node", "index.js"]
