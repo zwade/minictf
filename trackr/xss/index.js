@@ -50,6 +50,7 @@ let getEntry = async () => {
 	let rec = async () => {
 		let result = await db.xss.find({}, {$orderby: {date: -1}, $limit: 1 }).toArray();
 		if (result.length === 0) {
+			console.log("Found nothing in the db");
 			await sleep(1000);
 			return rec();
 		}
