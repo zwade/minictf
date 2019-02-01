@@ -1,5 +1,5 @@
 DROP DATABASE IF EXISTS bageldb;
-REATE DATABASE bageldb;
+CREATE DATABASE bageldb;
 USE bageldb;
 
 CREATE TABLE `bagels` (

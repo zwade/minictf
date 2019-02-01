@@ -39,7 +39,7 @@
 					return $s;
 				}
 
-				$conn = mysqli_connect("mysqldb", "user", "thisisasecurepasswordtm", "flagdb");
+				$conn = mysqli_connect("mysqlworddb", "user", "thisisasecurepasswordtm", "flagdb", 3307);
 
 				if (mysqli_connect_errno($conn)) {
 					echo "Failed to connect to MySQL: " . mysqli_connect_error();
