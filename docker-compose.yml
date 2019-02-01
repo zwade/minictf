@@ -32,7 +32,7 @@ services:
       PORT: "7654"
       BASENAME: "problems.getpwning.com:7654"
     ports:
-      - "7070:7070"
+      - "7654:7654"
   trackr-bot:
     image: trackr-bot
     restart: always
