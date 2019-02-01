@@ -58,3 +58,16 @@ services:
     image: js-safe
     ports:
       - "2266:80"
+  postgres:
+    image: postgres
+    volumes:
+      - "./postgres/:/docker-entrypoint-initdb.d/"
+    environment:
+      - "POSTGRES_USER=admin"
+      - "POSTGRES_PASSWORD=oxgFHNhNDckIkEDw"
+    ports:
+      - "5439:5432"
+  intro:
+    image: intro
+    ports:
+      - "8000:8000"

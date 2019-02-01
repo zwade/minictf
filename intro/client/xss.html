@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script>
+$(window).on("load", () => {
+	$("#button").on("click", () => {
+		let data = $("#data").val();
+		$("#result").append($(data));
+	})
+})
+		</script>
+		<style>
+.main {
+	max-width: 600px;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	font-family: Lato;
+}
+
+h1 {
+	text-align: center;
+}
+
+textarea {
+	min-height: 200px;
+}
+		</style>
+	</head>
+
+	<body>
+		<div class="main">
+			<h1>Insert data into the box below</h1>
+			When you hit "go", whatever you've typed will be inserted directly into the page. Try to get an alert message to pop up for yourself.
+
+			<textarea id="data"></textarea>
+			<input type="button" id="button" value='Go'>
+
+			<div id="result">
+			</div>
+		</div>
+	</body>
+</html>

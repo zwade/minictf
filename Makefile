@@ -1,5 +1,5 @@
-all: csp vfs canihaveflag bagelshop
-.PHONY: all csp csp-server csp-bot vfs canihaveflag bagelshop
+all: csp vfs canihaveflag bagelshop intro js-safe
+.PHONY: all csp csp-server csp-bot vfs canihaveflag bagelshop js-safe intro
 
 csp-server:
 	echo "Building: csp-server" && \
@@ -26,3 +26,7 @@ bagelshop:
 js-safe:
 	echo "Building: js-safe" && \
 	docker build -q js-safe -t js-safe > /dev/null
+
+intro:
+	echo "Building: intro" && \
+	docker build -q intro -t intro > /dev/null

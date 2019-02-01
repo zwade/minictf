@@ -1,0 +1,1 @@
+CTF{Good Job! That's how you do LFI}

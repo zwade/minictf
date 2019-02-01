@@ -1,0 +1,63 @@
+<html>
+	<head>
+		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+		<style>
+body {
+	font-family: Lato;
+}
+.main {
+	max-width: 600px;
+	margin: auto;
+}
+
+.header {
+	font-size: 20px;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	margin: 32px;
+}
+
+input {
+	font-size: 16px;
+	margin-bottom: 8px;
+}
+		</style>
+	</head>
+
+	<body>
+		<div class="main">
+			<div class="header">In order to get through here, you must enter the secret password. You have three tries.</div>
+			<form method="GET" action="/type-confusion-test">
+				<input type="text" name="secret[0]">
+				<input type="text" name="secret[1]">
+				<input type="text" name="secret[2]">
+				<input type="submit" value="Go!">
+			</form>
+			<div>"Here is the code that the server is running</div>
+			<pre>
+app.get("/type-confusion-test", async (req, res) => {
+	let { secret } = req.query;
+	
+	if (secret.length != 3) {
+		return res.send("Nope! Send me three guesses");
+	}
+
+	for (let i = 0; i < 3; i++) {
+		if (secret[i] === password) {
+			secret.admin = true;
+		}
+	}
+
+	if (secret.admin) {
+		return res.send("Good job, welcome Admin");
+	} else {
+		return res.send("Wait a minute, you're not the admin!");
+	}
+})
+			</pre>
+		</div>
+	</body>
+</html>

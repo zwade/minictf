@@ -1,0 +1,66 @@
+<head>
+	<head>
+		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+		<style>
+body {
+	font-family: Lato;
+}
+.main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-width: 500px;
+	margin: auto;
+}
+
+h1 {
+	font-size: 24px;
+}
+
+#frame, #inputs {
+	width: 100%;
+}
+
+#inputs {
+	display: flex;
+	flex-direction: row;
+}
+
+#search {
+	flex-grow: 1;
+	font-size: 16px;
+}
+
+#frame {
+	margin-top: 16px;
+	border: 2px solid #222;
+}
+		</style>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script>
+$(window).on("load", () => {
+	$("#search").on("keypress", (e) => {
+		if (e.keyCode == 13) {
+			let value = $("#search").val();
+			$("#frame").prop("src", value);
+		}
+	})
+	$("#button").on("click", () => {
+		let value = $("#search").val();
+		$("#frame").prop("src", value);
+	})
+})
+		</script>
+	</head>
+
+	<body>
+		<div class='main'>
+			<h1>Use this text box to fetch and preview a URL. </h1>
+			<div id="inputs">
+				<input id="search" value="/lfi-example?page=page.html">
+				<input id="button" type="button" value="Go">
+			</div>
+			<iframe id="frame"></iframe>
+		</div>
+	</body>
+</head>

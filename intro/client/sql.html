@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+		<style>
+
+body {
+	font-family: Lato;
+}
+.login {
+	max-width: 600;
+	margin: auto;
+	font-size: 16px;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+input {
+	margin-top: 16px;
+	font-size: 16px;
+}
+
+h1 {
+	text-align: center;
+}
+		</style>
+	</head>
+
+	<body>
+		<div class="login">
+			<h1>Try to login as "Admin"</h1>
+			If you want an example login, you can use "Joe" and "password" as the credentials
+
+			<form method="GET" action="signin">
+				<input type="text" name='name' placeholder="User">
+				<input type="text" name='password' placeholder="Password">
+				<input type="submit" value="Log In">
+			</form>
+		</div>
+	</body>
+</html>
