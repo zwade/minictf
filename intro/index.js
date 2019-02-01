@@ -82,7 +82,9 @@ app.get("/signin", async (req, res) => {
 
 	try {
 		let result = await client.query(`SELECT is_admin from users where name='${query.name}' and password='${query.password}'`);
-		if (result.rows[0].is_admin) {
+		if (result.rows.length === 0) {
+			res.send("Could not log in");
+		} else if (result.rows[0].is_admin) {
 			res.send("Yay, you're an admin!");
 		} else {
 			res.send("Nope, not an admin");
