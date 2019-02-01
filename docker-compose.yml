@@ -22,6 +22,28 @@ services:
       MONGO_HOST: mongo
       PORT: "7070"
       BASENAME: "problems.getpwning.com:7070"
+  trackr-server:
+    image: trackr-server
+    restart: always
+    environment:
+      MONGO_USER: docker-root
+      MONGO_PASS: thisisasecurepasswordtm
+      MONGO_HOST: mongo
+      PORT: "7654"
+      BASENAME: "problems.getpwning.com:7654"
+    ports:
+      - "7070:7070"
+  trackr-bot:
+    image: trackr-bot
+    restart: always
+    cap_add:
+      - SYS_ADMIN
+    environment:
+      MONGO_USER: docker-root
+      MONGO_PASS: thisisasecurepasswordtm
+      MONGO_HOST: mongo
+      PORT: "7654"
+      BASENAME: "problems.getpwning.com:7654"
   mongo:
     image: mongo:4
     environment:

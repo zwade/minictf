@@ -1,5 +1,5 @@
-all: csp vfs canihaveflag bagelshop intro js-safe
-.PHONY: all csp csp-server csp-bot vfs canihaveflag bagelshop js-safe intro
+all: csp trackr vfs canihaveflag bagelshop intro js-safe
+.PHONY: all csp csp-server csp-bot trackr trackr-server trackr-bot vfs canihaveflag bagelshop js-safe intro
 
 csp-server:
 	echo "Building: csp-server" && \
@@ -10,6 +10,16 @@ csp-bot: csp-server
 	docker build -q simple-csp -f simple-csp/Dockerfile.bot -t csp-bot > /dev/null
 
 csp: csp-server csp-bot
+
+trackr-server:
+	echo "Building: trackr" && \
+	docker build -q trackr -f trackr/Dockerfile.server -t trackr-server > /dev/null
+
+trackr-bot: trackr-server
+	echo "Building: trackr-bot" && \
+	docker build -q trackr -f trackr/Dockerfile.bot -t trackr-bot > /dev/null
+
+trackr: trackr-server trackr-bot
 
 vfs:
 	echo "Building: vfs" && \

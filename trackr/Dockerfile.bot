@@ -1,0 +1,5 @@
+FROM csp-server
+
+USER pptruser
+
+CMD ["node", "xss/index.js"]
