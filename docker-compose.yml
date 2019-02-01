@@ -47,25 +47,26 @@ services:
   mysqldb:
     image: mysql:5.7
     environment:
-      MYSQL_DATABASE: bageldb
+      #MYSQL_DATABASE: bageldb
       MYSQL_USER: user
       MYSQL_PASSWORD: thisisasecurepasswordtm
       MYSQL_ROOT_PASSWORD: thisisasecurepasswordtm
     volumes:
-      - ./bagelshop/db:/docker-entrypoint-initdb.d
+      #- ./bagelshop/db:/docker-entrypoint-initdb.d
+      - ./db:/docker-entrypoint-initdb.d
   wordlock:
     image: wordlock
     ports:
       - "1337:80"
     volumes:
       - ./word-lock/web/www:/var/www/html/
-  mysqlworddb:
-    image: mysql:5.7
-    environment:
-      MYSQL_DATABASE: flagdb
-      MYSQL_USER: user
-      MYSQL_PASSWORD: thisisasecurepasswordtm
-      MYSQL_ROOT_PASSWORD: thisisasecurepasswordtm
+  #mysqlworddb:
+  #  image: mysql:5.7
+  #  environment:
+  #    MYSQL_DATABASE: flagdb
+  #    MYSQL_USER: user
+  #    MYSQL_PASSWORD: thisisasecurepasswordtm
+  #    MYSQL_ROOT_PASSWORD: thisisasecurepasswordtm
     ports:
       - "3307:3306"
     volumes:
