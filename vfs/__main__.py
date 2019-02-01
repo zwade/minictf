@@ -56,7 +56,7 @@ paths = {
 	},
 }
 
-# Fethes the result based off of the url
+# Fetches the result based off of the url
 def getFile(loc):
 	is_first_element = loc[0] != "/"
 	if not is_first_element:
@@ -94,8 +94,7 @@ def getFile(loc):
 				except Exception:
 					raise Exception("Error! File not found")
 
-			# If we use a filter, make sure its at the beginning of our chain
-			# then call it on the recursive result
+			# If we use a filter, recursively determine what we are filtering
 			if pathData["type"] == "filter":
 				if not is_first_element:
 					raise Exception("Error! Can only use filters at the beginning of a request")

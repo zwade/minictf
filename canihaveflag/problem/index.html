@@ -18,23 +18,21 @@ body {
 h1 {
 	font-size: 48px;
 }
+
 		</style>
 		<script>
-// For those wondering, this line has nothing to do with the CTF
-// It's just a funny little trick I like
-[String, Object, Array, Map].forEach((cls) => cls.prototype.callOn = function (fn) { return fn(this) })
-
 window.onload = function() {
-	let userAuth = document.cookie
+	let userData = document.cookie
 		.split(";")
 		.map((cookie) => (cookie.trim()).split("="))
 		.reduce((map, [key, value]) => map.set(key, value), new Map())
-		.callOn((map) => map.get("user-auth"))
+		
+	let [_preamble, encodedData, _signature] = userData.get("user-auth")
 		.split(".")
-		.callOn(([_preamble, data, _signature]) => data)
-		.callOn(decodeURIComponent)
-		.callOn(atob)
-		.split("&")
+		
+	let data = atob(decodeURIComponent(encodedData))
+
+	let userAuth = data.split("&")
 		.map((auth) => (auth.trim()).split("="))
 		.reduce((map, [key, value]) => map.set(key, value), new Map());
 

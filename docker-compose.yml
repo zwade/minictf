@@ -54,3 +54,7 @@ services:
       MYSQL_ROOT_PASSWORD: test
     volumes:
       - ./bagelshop/db:/docker-entrypoint-initdb.d
+  js-safe:
+    image: js-safe
+    ports:
+      - "2266:80"

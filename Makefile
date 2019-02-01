@@ -22,3 +22,7 @@ canihaveflag:
 bagelshop:
 	echo "Building: bagelshop" && \
 	docker build -q bagelshop/web -t bagelshop > /dev/null
+
+js-safe:
+	echo "Building: js-safe" && \
+	docker build -q js-safe -t js-safe > /dev/null

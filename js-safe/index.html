@@ -1,0 +1,135 @@
+<html>
+	<head>
+		<link href="https://fonts.googleapis.com/css?family=Mitr" rel="stylesheet">
+		<style>`
+body {
+	background: red;
+}
+
+body {
+	background: #F5F5f5;
+	font-family: 'Mitr';
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+h1 {
+	text-align: center;
+	font-size: 48px;
+	margin-bottom: 8px;
+	padding-bottom: 0px;
+	margin-top: 100px;
+}
+
+h3 {
+	margin-top: 0px;
+	margin-bottom: 16px;
+	font-style: italic;
+}
+
+#safe {
+	max-width: 400px;
+	font-size: 24px;
+}
+
+#safe.success {
+	background: #43A047;
+}
+
+#safe.failure {
+	background: #f44336;
+}
+
+.hidden {
+	display: none;
+}
+		`</style>
+	</head>
+	<h1>
+		JsSafe `0.5`
+	</h1>
+	<h3>
+		"Can you guess the flag?"
+	</h3>
+	<input type="text" id="safe"/>
+
+	<div class="function hidden">
+		if (arg.length == 0) 
+			return "";
+
+		JsSafe({});
+
+		let x = 5;
+		let hash = 0;
+		let collatz = 15;
+		for (collatz; collatz > 1; collatz % 2 == 0 ? collatz /= 2 : collatz = 3 * collatz + 1) 
+		<span>
+			hash ^= ord(key[arg.length - (collatz % key.length)]);
+			console.log(key[arg.length - (collatz % key.length)])
+		</span>
+		debugger;
+
+		<div class="return">return chr(ord(arg[0]) ^ hash) + fn(arg.slice(1))</div>
+	</div>
+
+	<div class="footer">
+		<script>
+			key = "UZUBKZNXUKUG";
+
+			var t
+			safe = document.querySelector("#safe")
+			safe.onkeypress = (e) => {
+				if (e.keyCode == 13) {
+					decode(safe.value)
+				}
+			}
+
+			ord = (x) => x.charCodeAt(0);
+			chr = (x) => String.fromCharCode(x);
+
+			function decode(a) {
+				let result = "";
+				let queue = [document];
+				while (queue.length !== 0) {
+					let node = queue.shift();
+					if (node.nodeType === node.TEXT_NODE) {
+						result += node.textContent;
+					} else {
+						queue = queue.concat([...node.childNodes]);
+					}
+				}
+
+				function JsSafe (arg) {
+					if (typeof arg === "object") {
+						key = key
+							.split(key.slice(5, 0))
+							.map(ord)
+							.map(x => (x - 65 + 5) % 26 + 65)
+							.map(chr)
+							.join("")
+					} else {
+						return arg
+							.split("")
+							.map(ord)
+							.map((x,i) => x ^ ord("Z"))
+							.map(chr)
+							.join("");
+					}
+				}
+
+				a = JsSafe(a)
+				fn = eval(`(function (arg) { ${result} })`);
+				r = fn(a)
+
+				safe.disabled = true
+				if (r === "hasheS4$Kaol") {
+					safe.classList.add("success");
+				} else {
+					safe.classList.add("failure");
+				}
+			}
+		</script>
+	</div>
+
+</html>

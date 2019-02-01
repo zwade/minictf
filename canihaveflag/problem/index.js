@@ -72,7 +72,10 @@ function generateNewAuthToken(req, res, data) {
 
 	let digest = crc32.str(`${secret}${stringifiedData}`);
 
-	let preamble = `{ "alg": "CRC-32 (little endian)", "typ": "UWT" }`
+	let preamble = JSON.stringify({ 
+		"alg": "CRC-32 (little endian)", 
+		"typ": "UWT",
+	})
 	let hexdigest = Buffer.from([
 		digest         & 0xFF,
 		(digest >> 8)  & 0xFF,
