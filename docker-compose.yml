@@ -65,8 +65,6 @@ services:
     environment:
       - "POSTGRES_USER=admin"
       - "POSTGRES_PASSWORD=oxgFHNhNDckIkEDw"
-    ports:
-      - "5439:5432"
   intro:
     image: intro
     ports:
