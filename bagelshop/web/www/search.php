@@ -15,7 +15,7 @@
 
     <div class="row justify-content-center">
 			<?php
-				$conn = mysqli_connect("mysqldb", "user", "test", "bageldb");
+				$conn = mysqli_connect("mysqldb", "user", "thisisasecurepasswordtm", "bageldb");
 		
 				if (mysqli_connect_errno($conn)) {
 					echo "Failed to connect to MySQL: " . mysqli_connect_error();
