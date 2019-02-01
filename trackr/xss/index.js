@@ -66,6 +66,7 @@ let getEntry = async () => {
 
 process.on("unhandledRejection", (e) => {
 	console.error("Failure", e);
+	process.exit(1);
 })
 
 getEntry()
