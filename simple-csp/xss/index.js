@@ -78,7 +78,11 @@ let getEntry = async () => {
 		let [{ uri, _id }] = result;
 		await db.reports.remove({ _id });
 		console.log(`Visiting ${uri}`);
-		await visitPage(uri);
+		try {
+			await visitPage(uri);
+		} catch (e) {
+			// pass
+		}
 		return rec();
 	}
 	return rec();
