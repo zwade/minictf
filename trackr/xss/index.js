@@ -58,7 +58,11 @@ let getEntry = async () => {
 		await db.xss.remove({ _id });
 		let uri = `http://${host}/view?report=${uid}`;
 		console.log(`Visiting ${uri}`);
-		await visitPage(uri);
+		try {
+			await visitPage(uri);
+		} catch (e) {
+			// passs
+		}
 		return rec();
 	}
 	return rec();
