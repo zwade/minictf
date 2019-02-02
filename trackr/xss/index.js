@@ -19,7 +19,7 @@ let visitPage = async (page) => {
 	const browser = await puppeteer.launch(chromeOpts);
 	const pageElt = await browser.newPage();
 
-	let interrupt = sleep(5000).then(browser.close)
+	let interrupt = sleep(2000).then(browser.close)
 
 	let allSteps = async () => {
 		await pageElt.setCookie({
@@ -36,7 +36,7 @@ let visitPage = async (page) => {
 		});
 
 		await pageElt.goto(page);
-		await sleep(3000);
+		await sleep(2000);
 		return browser.close();
 	}
 

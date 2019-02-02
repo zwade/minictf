@@ -86,7 +86,7 @@ let getEntry = async () => {
 
 process.on("unhandledRejection", (e) => {
 	console.error("Failure", e);
-	throw e;
+	process.exit(1);
 })
 
 getEntry()
