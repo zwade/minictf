@@ -36,6 +36,10 @@ BagelShop | 7007
 Word-Lock | 1337
 JsSafe | 2266
 
+## Scaling
+
+Most of these problems are not really designed to be scalable. The exceptions to these are the XSS bots used for both `Postable` and `Trackr`. To scale one of these XSS bots, run `docker-compose up -d --scale $PROBLEM=$N $PROBLEM`, where `$PROBLEM` is either `csp-bot` or `trackr-bot`, and `N` can be any integer.  
+
 ## Solutions
 
 Most problems don't have solve scripts, although a couple of them (such as `canihaveflag`) do.
