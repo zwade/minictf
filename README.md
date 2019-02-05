@@ -25,16 +25,16 @@ Starting the problems will not start any kind of problem management interface. A
 
 Once you've built and started the problems, the problems will be found on the following ports
 
-Problem Name | Port
--------------------
-Intro | 8000
-Postable | 7070
-Trackr | 7654
-We Rate Birds | 9630
-Can I Have Flag | 5454 
-BagelShop | 7007
-Word-Lock | 1337
-JsSafe | 2266
+| Problem Name    | Port |
+| ----------------|----- |
+| Intro           | 8000 |
+| Postable        | 7070 |
+| Trackr          | 7654 |
+| We Rate Birds   | 9630 |
+| Can I Have Flag | 5454 |
+| BagelShop       | 7007 |
+| Word-Lock       | 1337 |
+| JsSafe          | 2266 |
 
 ## Scaling
 
