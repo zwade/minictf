@@ -88,10 +88,6 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: thisisasecurepasswordtm
       MYSQL_ROOT_PASSWORD: thisisasecurepasswordtm
-    expose: 
-      - "3307"
-    ports:
-      - "3307:3306"
     volumes:
       - ./word-lock/db:/docker-entrypoint-initdb.d
   js-safe:
